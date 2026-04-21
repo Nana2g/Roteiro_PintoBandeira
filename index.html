@@ -1,0 +1,1285 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roteiro Pinto Bandeira · Julho 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --wine: #5c1a2b;
+    --wine-dark: #3d0f1c;
+    --burgundy: #7a2438;
+    --gold: #c9a961;
+    --gold-soft: #e6d4a8;
+    --cream: #faf5ed;
+    --cream-dark: #f0e8d8;
+    --green: #4a5d3a;
+    --ink: #2a1f1a;
+    --muted: #6b5b52;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--cream);
+    color: var(--ink);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(135deg, var(--wine-dark) 0%, var(--wine) 50%, var(--burgundy) 100%);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--cream);
+    padding: 2rem;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 20% 30%, rgba(201, 169, 97, 0.15) 0%, transparent 50%),
+      radial-gradient(circle at 80% 70%, rgba(201, 169, 97, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'%3E%3Cg fill='none' stroke='%23c9a961' stroke-opacity='0.08'%3E%3Cpath d='M30 10 Q 20 20 30 30 Q 40 20 30 10 Z'/%3E%3C/g%3E%3C/svg%3E");
+    opacity: 0.4;
+    pointer-events: none;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+  }
+
+  .hero .ornament {
+    font-size: 2rem;
+    color: var(--gold);
+    letter-spacing: 1em;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero h1 {
+    font-size: clamp(3rem, 8vw, 6.5rem);
+    line-height: 1;
+    margin-bottom: 1rem;
+    font-weight: 500;
+  }
+
+  .hero h1 em {
+    color: var(--gold);
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  .hero .subtitle {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    font-style: italic;
+    color: var(--gold-soft);
+    margin-bottom: 3rem;
+    font-weight: 400;
+  }
+
+  .hero-dates {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+  }
+
+  .date-card {
+    background: rgba(250, 245, 237, 0.08);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(201, 169, 97, 0.3);
+    padding: 1.2rem 1.8rem;
+    border-radius: 4px;
+    min-width: 140px;
+  }
+
+  .date-card .day-name {
+    font-size: 0.75rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.3rem;
+  }
+
+  .date-card .day-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    font-weight: 500;
+    line-height: 1;
+  }
+
+  .date-card .day-month {
+    font-size: 0.85rem;
+    color: var(--gold-soft);
+    margin-top: 0.3rem;
+  }
+
+  .countdown {
+    margin-top: 2rem;
+    padding: 1.5rem 2rem;
+    background: rgba(201, 169, 97, 0.12);
+    border: 1px solid rgba(201, 169, 97, 0.35);
+    border-radius: 6px;
+    display: inline-block;
+    min-width: 280px;
+  }
+
+  .countdown-label {
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.3rem;
+  }
+
+  .countdown-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.5rem;
+    font-weight: 500;
+    color: var(--cream);
+    line-height: 1;
+  }
+
+  .countdown-value #countdown-days {
+    color: var(--gold);
+    font-style: italic;
+  }
+
+  .countdown-unit {
+    font-size: 1.3rem;
+    font-style: italic;
+    color: var(--gold-soft);
+  }
+
+  .countdown-sub {
+    font-size: 0.8rem;
+    color: var(--gold-soft);
+    margin-top: 0.3rem;
+    letter-spacing: 0.05em;
+  }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.75rem;
+    letter-spacing: 0.3em;
+    color: var(--gold-soft);
+    text-transform: uppercase;
+    animation: bounce 2s infinite;
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); opacity: 0.7; }
+    50% { transform: translateX(-50%) translateY(8px); opacity: 1; }
+  }
+
+  /* SECTIONS */
+  section {
+    padding: 6rem 2rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    font-weight: 500;
+  }
+
+  .section-title {
+    font-size: clamp(2.2rem, 5vw, 3.5rem);
+    color: var(--wine);
+    margin-bottom: 1rem;
+    line-height: 1.1;
+  }
+
+  .section-intro {
+    color: var(--muted);
+    font-size: 1.05rem;
+    max-width: 600px;
+    margin-bottom: 3rem;
+  }
+
+  /* OVERVIEW */
+  .overview {
+    background: linear-gradient(180deg, var(--cream) 0%, var(--cream-dark) 100%);
+    max-width: none;
+    text-align: center;
+  }
+
+  .overview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+    max-width: 1100px;
+    margin: 3rem auto 0;
+  }
+
+  .overview-item {
+    background: white;
+    padding: 2rem 1.5rem;
+    border-radius: 6px;
+    border-top: 3px solid var(--gold);
+    box-shadow: 0 4px 20px rgba(92, 26, 43, 0.06);
+  }
+
+  .overview-item .icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .overview-item h3 {
+    font-size: 1.3rem;
+    color: var(--wine);
+    margin-bottom: 0.5rem;
+  }
+
+  .overview-item p {
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+
+  .overview-item .highlight {
+    color: var(--wine);
+    font-weight: 600;
+  }
+
+  /* GRUPO */
+  .grupo-section {
+    max-width: 1100px;
+    margin: 5rem auto 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    text-align: left;
+  }
+
+  .grupo-photo {
+    width: 100%;
+    border-radius: 6px;
+    box-shadow: 0 15px 50px rgba(92, 26, 43, 0.2);
+    transform: rotate(-1deg);
+    transition: transform 0.3s;
+  }
+
+  .grupo-photo:hover {
+    transform: rotate(0deg) scale(1.02);
+  }
+
+  .grupo-title {
+    font-size: 2.2rem;
+    color: var(--wine);
+    margin: 0.8rem 0 1rem;
+    line-height: 1.15;
+  }
+
+  .grupo-text p {
+    color: var(--muted);
+    font-size: 1.05rem;
+  }
+
+  @media (max-width: 768px) {
+    .grupo-section {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      text-align: center;
+    }
+    .grupo-photo {
+      max-width: 400px;
+      margin: 0 auto;
+    }
+  }
+
+  /* PRICE TAG */
+  .event-price {
+    display: inline-block;
+    margin-left: 0.5rem;
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+    background: rgba(201, 169, 97, 0.18);
+    color: #8c7440;
+    padding: 0.2rem 0.6rem;
+    border-radius: 3px;
+    letter-spacing: 0.02em;
+    font-weight: 500;
+  }
+
+  .event-price.free {
+    background: rgba(74, 93, 58, 0.15);
+    color: var(--green);
+  }
+
+  .price-note {
+    display: block;
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: var(--muted);
+    font-style: italic;
+  }
+
+  /* SUNSET OPTIONS */
+  .sunset-options {
+    background: rgba(201, 169, 97, 0.08);
+    border-radius: 6px;
+    padding: 1.2rem 1.5rem;
+    margin-top: 1rem;
+    border-left: 3px solid var(--gold);
+  }
+
+  .sunset-options strong {
+    color: var(--wine);
+    font-size: 0.9rem;
+    display: block;
+    margin-bottom: 0.6rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .sunset-options ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .sunset-options li {
+    padding: 0.3rem 0;
+    font-size: 0.95rem;
+    color: var(--ink);
+  }
+
+  .sunset-options li strong {
+    display: inline;
+    font-size: inherit;
+    text-transform: none;
+    letter-spacing: normal;
+    color: var(--wine);
+  }
+
+  /* DAYS */
+  .day {
+    margin-bottom: 4rem;
+    position: relative;
+  }
+
+  .day-header {
+    display: flex;
+    align-items: baseline;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid var(--gold);
+    flex-wrap: wrap;
+  }
+
+  .day-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 5rem;
+    font-weight: 500;
+    color: var(--gold);
+    line-height: 0.9;
+    font-style: italic;
+  }
+
+  .day-title-block h2 {
+    font-size: 2.5rem;
+    color: var(--wine);
+  }
+
+  .day-title-block .day-subtitle {
+    color: var(--muted);
+    font-size: 1rem;
+    font-style: italic;
+    margin-top: 0.3rem;
+  }
+
+  /* TIMELINE */
+  .timeline {
+    position: relative;
+    padding-left: 2rem;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0.5rem;
+    top: 0.8rem;
+    bottom: 0.8rem;
+    width: 2px;
+    background: linear-gradient(180deg, var(--gold) 0%, var(--gold-soft) 100%);
+  }
+
+  .event {
+    position: relative;
+    margin-bottom: 2.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .event::before {
+    content: '';
+    position: absolute;
+    left: -2rem;
+    top: 0.6rem;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--wine);
+    border: 3px solid var(--cream);
+    box-shadow: 0 0 0 2px var(--gold);
+  }
+
+  .event-time {
+    display: inline-block;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem;
+    color: var(--wine);
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+    letter-spacing: 0.02em;
+  }
+
+  .event-title {
+    font-size: 1.5rem;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+  }
+
+  .event-place {
+    display: inline-block;
+    background: var(--wine);
+    color: var(--cream);
+    padding: 0.25rem 0.8rem;
+    border-radius: 3px;
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.8rem;
+    font-weight: 500;
+  }
+
+  .event-desc {
+    color: var(--muted);
+    font-size: 0.98rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .event-list {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  .event-list li {
+    padding-left: 1.2rem;
+    position: relative;
+    color: var(--ink);
+    margin-bottom: 0.4rem;
+    font-size: 0.95rem;
+  }
+
+  .event-list li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-weight: bold;
+  }
+
+  .event-duration {
+    display: inline-block;
+    margin-top: 0.5rem;
+    font-size: 0.8rem;
+    color: var(--green);
+    background: rgba(74, 93, 58, 0.1);
+    padding: 0.2rem 0.6rem;
+    border-radius: 3px;
+    letter-spacing: 0.03em;
+  }
+
+  .event.optional {
+    opacity: 0.9;
+  }
+
+  .event.optional .event-title::after {
+    content: ' · opcional';
+    font-size: 0.8rem;
+    color: var(--muted);
+    font-style: italic;
+    font-family: 'Inter', sans-serif;
+    font-weight: normal;
+  }
+
+  .event.night {
+    background: linear-gradient(135deg, rgba(92, 26, 43, 0.04) 0%, rgba(201, 169, 97, 0.08) 100%);
+    padding: 1.5rem;
+    border-radius: 6px;
+    border-left: 3px solid var(--wine);
+    margin-left: -1.5rem;
+  }
+
+  .event.night::before {
+    left: -0.5rem;
+  }
+
+  /* VINICOLAS */
+  .vinicolas {
+    background: var(--wine);
+    color: var(--cream);
+    max-width: none;
+    padding: 6rem 2rem;
+  }
+
+  .vinicolas-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .vinicolas .section-label { color: var(--gold); }
+  .vinicolas .section-title { color: var(--cream); }
+  .vinicolas .section-intro { color: var(--gold-soft); }
+
+  .vinicola-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .vinicola-card {
+    background: rgba(250, 245, 237, 0.05);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(201, 169, 97, 0.2);
+    padding: 2rem;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+  }
+
+  .vinicola-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--gold);
+    background: rgba(250, 245, 237, 0.08);
+  }
+
+  .vinicola-card .tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.8rem;
+  }
+
+  .vinicola-card h3 {
+    font-size: 1.6rem;
+    margin-bottom: 0.8rem;
+    color: var(--cream);
+  }
+
+  .vinicola-card p {
+    color: var(--gold-soft);
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  /* CHECKLIST */
+  .reservas {
+    background: var(--cream-dark);
+    max-width: none;
+    padding: 6rem 2rem;
+  }
+
+  .reservas-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .checklist {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 6px;
+    box-shadow: 0 8px 30px rgba(92, 26, 43, 0.08);
+  }
+
+  .checklist h3 {
+    font-size: 1.8rem;
+    color: var(--wine);
+    margin-bottom: 1.5rem;
+  }
+
+  .checklist-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--cream-dark);
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.2s;
+  }
+
+  .checklist-item:last-child { border-bottom: none; }
+
+  .checklist-item:hover {
+    padding-left: 0.5rem;
+  }
+
+  .checkbox {
+    width: 22px;
+    height: 22px;
+    border: 2px solid var(--wine);
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.2s;
+  }
+
+  .checklist-item.checked .checkbox {
+    background: var(--wine);
+    color: var(--cream);
+  }
+
+  .checklist-item.checked .checkbox::after {
+    content: '✓';
+    font-weight: bold;
+  }
+
+  .checklist-item.checked .item-text {
+    text-decoration: line-through;
+    color: var(--muted);
+  }
+
+  .item-text {
+    flex: 1;
+    font-size: 1rem;
+  }
+
+  .item-status {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 3px;
+    letter-spacing: 0.05em;
+  }
+
+  .status-required {
+    background: rgba(92, 26, 43, 0.1);
+    color: var(--wine);
+  }
+
+  .status-recommended {
+    background: rgba(201, 169, 97, 0.2);
+    color: #8c7440;
+  }
+
+  /* TIPS */
+  .tips h3 {
+    font-size: 1.8rem;
+    color: var(--wine);
+    margin-bottom: 1.5rem;
+  }
+
+  .tip-card {
+    background: white;
+    padding: 1.5rem;
+    border-left: 3px solid var(--gold);
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 15px rgba(92, 26, 43, 0.05);
+  }
+
+  .tip-card strong {
+    color: var(--wine);
+    display: block;
+    margin-bottom: 0.3rem;
+  }
+
+  .tip-card p {
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--wine-dark);
+    color: var(--gold-soft);
+    text-align: center;
+    padding: 3rem 2rem;
+  }
+
+  footer .ornament {
+    color: var(--gold);
+    letter-spacing: 0.8em;
+    margin-bottom: 1rem;
+  }
+
+  footer p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-style: italic;
+  }
+
+  footer small {
+    display: block;
+    margin-top: 1rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.7;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .reservas-inner {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+    section { padding: 4rem 1.5rem; }
+    .vinicolas, .reservas { padding: 4rem 1.5rem; }
+    .day-number { font-size: 3.5rem; }
+    .event.night { margin-left: -1rem; }
+    .timeline { padding-left: 1.5rem; }
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    background: rgba(250, 245, 237, 0);
+    backdrop-filter: blur(0);
+    transition: all 0.3s;
+  }
+
+  nav.scrolled {
+    background: rgba(250, 245, 237, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 20px rgba(92, 26, 43, 0.08);
+  }
+
+  nav a {
+    color: var(--cream);
+    text-decoration: none;
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+
+  nav.scrolled a {
+    color: var(--wine);
+  }
+
+  nav a:hover {
+    color: var(--gold);
+  }
+
+  @media (max-width: 600px) {
+    nav { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="#visao-geral">Visão Geral</a>
+  <a href="#sexta">Sexta</a>
+  <a href="#sabado">Sábado</a>
+  <a href="#domingo">Domingo</a>
+  <a href="#reservas">Reservas</a>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-content">
+    <div class="ornament">· · ·</div>
+    <h1>Pinto <em>Bandeira</em></h1>
+    <p class="subtitle">Três dias entre vinhedos, espumantes e boa companhia</p>
+    <div class="hero-dates">
+      <div class="date-card">
+        <div class="day-name">Sexta</div>
+        <div class="day-num">24</div>
+        <div class="day-month">Julho · 2026</div>
+      </div>
+      <div class="date-card">
+        <div class="day-name">Sábado</div>
+        <div class="day-num">25</div>
+        <div class="day-month">Julho · 2026</div>
+      </div>
+      <div class="date-card">
+        <div class="day-name">Domingo</div>
+        <div class="day-num">26</div>
+        <div class="day-month">Julho · 2026</div>
+      </div>
+    </div>
+
+    <div class="countdown">
+      <div class="countdown-label">Contagem regressiva</div>
+      <div class="countdown-value"><span id="countdown-days">—</span> <span class="countdown-unit">dias</span></div>
+      <div class="countdown-sub" id="countdown-sub">carregando...</div>
+    </div>
+  </div>
+  <div class="scroll-hint">role para o roteiro ↓</div>
+</header>
+
+<!-- OVERVIEW -->
+<section id="visao-geral" class="overview">
+  <div class="section-label">A viagem</div>
+  <h2 class="section-title">Zero correria, experiências bem aproveitadas</h2>
+  <p class="section-intro" style="margin-left: auto; margin-right: auto;">
+    Férias de julho da faculdade com a galera. Saída de Porto Alegre na sexta de manhã, com parada para almoço no meio do caminho, e três dias pra descobrir as melhores vinícolas da Serra Gaúcha.
+  </p>
+
+  <div class="overview-grid">
+    <div class="overview-item">
+      <div class="icon">🚗</div>
+      <h3>Partida</h3>
+      <p>Sexta <span class="highlight">10h</span> de Porto Alegre</p>
+      <p style="font-size: 0.85rem; margin-top: 0.5rem;">Almoço no Bossa Nova em São Leopoldo</p>
+    </div>
+    <div class="overview-item">
+      <div class="icon">🌡️</div>
+      <h3>Clima em julho</h3>
+      <p><span class="highlight">7°C a 17°C</span></p>
+      <p style="font-size: 0.85rem; margin-top: 0.5rem;">Frio serrano · pode ter geada e neblina de manhã. Levar casaco bom.</p>
+    </div>
+    <div class="overview-item">
+      <div class="icon">🍷</div>
+      <h3>Vinícolas</h3>
+      <p><span class="highlight">5 visitas</span> planejadas</p>
+      <p style="font-size: 0.85rem; margin-top: 0.5rem;">Geisse, Don Giovanni, Valmarino e mais</p>
+    </div>
+    <div class="overview-item">
+      <div class="icon">☕</div>
+      <h3>Cafés da manhã</h3>
+      <p><span class="highlight">Todos em casa</span></p>
+      <p style="font-size: 0.85rem; margin-top: 0.5rem;">Comprar mercado na chegada · pão, ovos, café, frutas</p>
+    </div>
+  </div>
+
+  <!-- GRUPO -->
+  <div class="grupo-section">
+    <img src="grupo.jpg" alt="Foto do grupo" class="grupo-photo">
+    <div class="grupo-text">
+      <div class="section-label">O grupo</div>
+      <h3 class="grupo-title">Cinco amigos, três dias, muito vinho</h3>
+      <p>A galera da faculdade inteira reunida pra curtir as férias de julho. Churrasco, vinícolas, guerrinha de arminha e histórias novas pra contar.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SEXTA -->
+<section id="sexta">
+  <div class="day">
+    <div class="day-header">
+      <div class="day-number">01</div>
+      <div class="day-title-block">
+        <div class="section-label">24 de julho · sexta-feira</div>
+        <h2>Chegada, pôr do sol & churrasco</h2>
+        <p class="day-subtitle">dia de abertura, no ritmo certo</p>
+      </div>
+    </div>
+
+    <div class="timeline">
+      <div class="event">
+        <div class="event-time">10:00</div>
+        <h3 class="event-title">Saída de Porto Alegre</h3>
+        <p class="event-desc">Todo mundo reunido, mala no carro, playlist pronta. Vamos!</p>
+      </div>
+
+      <div class="event">
+        <div class="event-time">12:30</div>
+        <h3 class="event-title">Almoço no caminho</h3>
+        <span class="event-place">São Leopoldo · Bossa Nova</span>
+        <p class="event-desc">Parada estratégica para comer bem antes de seguir viagem.</p>
+        <span class="event-price">~R$ 50–80/pessoa</span>
+      </div>
+
+      <div class="event">
+        <div class="event-time">15:30</div>
+        <h3 class="event-title">Check-in no Airbnb</h3>
+        <span class="event-place">Pinto Bandeira</span>
+        <ul class="event-list">
+          <li>Organizar as coisas</li>
+          <li>Abrir um vinho para começar bem 🍷</li>
+          <li>Saída com calma</li>
+        </ul>
+      </div>
+
+      <div class="event">
+        <div class="event-time">17:00</div>
+        <h3 class="event-title">Pôr do sol — modo econômico</h3>
+        <p class="event-desc">A ideia é pegar um sunset lindo sem gastar muito. A paisagem dos vinhedos é de graça — o truque é escolher bem o lugar.</p>
+
+        <div class="sunset-options">
+          <strong>Opções do mais barato ao mais caro</strong>
+          <ul>
+            <li><strong>Mirantes nas estradas vicinais</strong> — parar o carro em algum ponto alto dos vinhedos. <span class="event-price free">grátis</span></li>
+            <li><strong>Capela das Neves / centrinho de Pinto Bandeira</strong> — vista aberta, clima de interior. <span class="event-price free">grátis</span></li>
+            <li><strong>Don Giovanni</strong> — entrar, caminhar pelos vinhedos e dividir 1 ou 2 taças. <span class="event-price">~R$ 40/taça</span></li>
+          </ul>
+        </div>
+
+        <span class="event-duration">⏱ até ~18:30</span>
+      </div>
+
+      <div class="event night">
+        <div class="event-time">19:30</div>
+        <h3 class="event-title">Noite no Airbnb</h3>
+        <p class="event-desc">A vibe certa pra primeira noite da viagem.</p>
+        <ul class="event-list">
+          <li>🔥 Churrasco</li>
+          <li>🍷 Vinho</li>
+          <li>🎲 Jogos</li>
+        </ul>
+      </div>
+
+      <div class="event night" style="border-left-color: var(--gold); background: linear-gradient(135deg, rgba(201, 169, 97, 0.15) 0%, rgba(92, 26, 43, 0.06) 100%);">
+        <div class="event-time">22:00</div>
+        <h3 class="event-title">🔫 Guerrinha de arminha</h3>
+        <p class="event-desc">Tradição do grupo. Depois do churrasco, com a galera animada — momento mais caótico e divertido da viagem.</p>
+        <ul class="event-list">
+          <li>Dividir em times</li>
+          <li>Definir as regras e as "zonas" do Airbnb</li>
+          <li>Lembrar de <strong>levar as arminhas e munição</strong> de POA</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SABADO -->
+<section id="sabado">
+  <div class="day">
+    <div class="day-header">
+      <div class="day-number">02</div>
+      <div class="day-title-block">
+        <div class="section-label">25 de julho · sábado</div>
+        <h2>O dia principal — vinícolas do começo ao fim</h2>
+        <p class="day-subtitle">o coração do roteiro</p>
+      </div>
+    </div>
+
+    <div class="timeline">
+      <div class="event">
+        <div class="event-time">08:30</div>
+        <h3 class="event-title">Café da manhã em casa</h3>
+        <p class="event-desc">Sem pressa. Comer bem antes do dia cheio que vem pela frente.</p>
+      </div>
+
+      <div class="event">
+        <div class="event-time">09:30</div>
+        <h3 class="event-title">Saída do Airbnb</h3>
+        <p class="event-desc">Pé na estrada em direção à experiência principal do roteiro.</p>
+      </div>
+
+      <div class="event" style="border-left: 3px solid var(--gold); background: linear-gradient(135deg, rgba(201, 169, 97, 0.12) 0%, rgba(92, 26, 43, 0.04) 100%); margin-left: -1.5rem; padding: 1.5rem; border-radius: 6px;">
+        <div class="event-time">10:00 · 🚙 A EXPERIÊNCIA DO 4x4</div>
+        <h3 class="event-title">Terroir Experience — passeio de mini 4x4</h3>
+        <span class="event-place">📍 Vinícola Família Geisse</span>
+        <p class="event-desc"><strong>É aqui o passeio de 4x4!</strong> A Família Geisse é a vinícola dos espumantes imperdíveis. O Terroir Experience é um tour a bordo de mini 4x4 pelos vinhedos, com cara de aventura — é a experiência mais legal do roteiro todo.</p>
+        <ul class="event-list">
+          <li>Piquenique <em>ou</em> degustação guiada dentro do passeio</li>
+          <li>Duração ideal: 2h a 2h30</li>
+          <li><strong>Precisa reservar com antecedência!</strong></li>
+        </ul>
+        <span class="event-price">~R$ 290–350/pessoa · confirmar no site</span>
+        <span class="event-duration">⏱ 10:00 → 12:30</span>
+      </div>
+
+      <div class="event">
+        <div class="event-time">13:00</div>
+        <h3 class="event-title">Almoço especial</h3>
+        <span class="event-place">Champenoise Bistrô</span>
+        <p class="event-desc">Gastronomia slow food e sazonal com vinhos de Pinto Bandeira. Restaurante no meio do mato, bem exclusivo — combina muito com o ritmo do roteiro.</p>
+        <span class="event-price">~R$ 180–250/pessoa · a confirmar</span>
+        <span class="event-duration">⏱ 13:00 → 15:00</span>
+      </div>
+
+      <div class="event">
+        <div class="event-time">15:30</div>
+        <h3 class="event-title">Degustação guiada</h3>
+        <span class="event-place">Vinícola Valmarino</span>
+        <p class="event-desc">Reconhecida pelos tintos de alta qualidade e espumantes de vinho base barricados. Degustação explorando os rótulos dessa vinícola familiar.</p>
+        <span class="event-price">~R$ 80–120/pessoa · a confirmar</span>
+        <span class="event-duration">⏱ 15:30 → 16:45</span>
+      </div>
+
+      <div class="event optional">
+        <div class="event-time">17:00</div>
+        <h3 class="event-title">Última parada</h3>
+        <span class="event-place">Vinícola Vita Eterna</span>
+        <p class="event-desc">Só se ainda estiverem com energia. Vinícola boutique especializada em vinhos biodinâmicos — mais intimista e diferente.</p>
+        <span class="event-price">~R$ 80–120/pessoa · a confirmar</span>
+        <span class="event-duration">⏱ 17:00 → 18:00</span>
+      </div>
+
+      <div class="event night">
+        <div class="event-time">19:30</div>
+        <h3 class="event-title">Noite no Airbnb</h3>
+        <p class="event-desc">Depois de um dia intenso, relax total em casa.</p>
+        <ul class="event-list">
+          <li>🍝 Strogonoff</li>
+          <li>🍷 Bebida</li>
+          <li>🎲 Jogos</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DOMINGO -->
+<section id="domingo">
+  <div class="day">
+    <div class="day-header">
+      <div class="day-number">03</div>
+      <div class="day-title-block">
+        <div class="section-label">26 de julho · domingo</div>
+        <h2>Despedida leve</h2>
+        <p class="day-subtitle">fechando com chave de ouro</p>
+      </div>
+    </div>
+
+    <div class="timeline">
+      <div class="event">
+        <div class="event-time">09:00</div>
+        <h3 class="event-title">Café da manhã em casa</h3>
+        <p class="event-desc">Sem pressa. Última manhã na casa, aproveitar o silêncio do interior.</p>
+      </div>
+
+      <div class="event">
+        <div class="event-time">10:30</div>
+        <h3 class="event-title">Passeio leve pelos vinhedos</h3>
+        <p class="event-desc">Dirigir sem pressa, paradas espontâneas para fotos, clima relax total.</p>
+        <span class="event-price free">grátis</span>
+      </div>
+
+      <div class="event">
+        <div class="event-time">12:30</div>
+        <h3 class="event-title">Almoço de encerramento</h3>
+        <span class="event-place">Nature Vinho & Gastronomia</span>
+        <p class="event-desc">Dentro da Vinícola Don Giovanni. Vista linda, ótima comida. Fecha o roteiro com chave de ouro.</p>
+        <span class="event-price">~R$ 180–250/pessoa · a confirmar</span>
+        <span class="event-duration">⏱ 12:30 → 14:15</span>
+      </div>
+
+      <div class="event">
+        <div class="event-time">15:00</div>
+        <h3 class="event-title">Saída para Porto Alegre</h3>
+        <p class="event-desc">Tchau Pinto Bandeira. Voltar cheios de histórias (e vinho na mala). 🚗</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VINICOLAS -->
+<section class="vinicolas">
+  <div class="vinicolas-inner">
+    <div class="section-label">Os lugares</div>
+    <h2 class="section-title">As cinco vinícolas do roteiro</h2>
+    <p class="section-intro">Cada uma com um papel diferente nos três dias — do pôr do sol ao almoço final.</p>
+
+    <div class="vinicola-grid">
+      <div class="vinicola-card">
+        <div class="tag">Sexta · pôr do sol</div>
+        <h3>Don Giovanni</h3>
+        <p>Paisagem clássica, caminhada leve, taça ao entardecer. Também abriga o Nature para o almoço de domingo.</p>
+      </div>
+      <div class="vinicola-card">
+        <div class="tag">Sábado · experiência principal</div>
+        <h3>Família Geisse</h3>
+        <p>Os espumantes imperdíveis. Terroir Experience em mini 4x4 pelos vinhedos — passeio com cara de aventura.</p>
+      </div>
+      <div class="vinicola-card">
+        <div class="tag">Sábado · almoço</div>
+        <h3>Champenoise Bistrô</h3>
+        <p>Slow food sazonal, restaurante no meio do mato. Gastronomia com vinhos de Pinto Bandeira.</p>
+      </div>
+      <div class="vinicola-card">
+        <div class="tag">Sábado · degustação</div>
+        <h3>Valmarino</h3>
+        <p>Tintos de alta qualidade e espumantes de vinho base barricados. Vinícola familiar com degustação guiada.</p>
+      </div>
+      <div class="vinicola-card">
+        <div class="tag">Sábado · opcional</div>
+        <h3>Vita Eterna</h3>
+        <p>Vinícola boutique de vinhos biodinâmicos. Experiência mais intimista — só se ainda sobrar fôlego.</p>
+      </div>
+      <div class="vinicola-card">
+        <div class="tag">Domingo · almoço final</div>
+        <h3>Nature Vinho & Gastronomia</h3>
+        <p>Dentro da Don Giovanni. Vista linda e ótima comida. O jeito certo de fechar a viagem.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESERVAS -->
+<section id="reservas" class="reservas">
+  <div class="reservas-inner">
+    <div>
+      <div class="section-label">Antes da viagem</div>
+      <h2 class="section-title">Reservas importantes</h2>
+      <p class="section-intro">Não vacilar nessas. Clique pra marcar como feito. <br><em>Preços do roteiro são estimados — confirmar em cada reserva.</em></p>
+
+      <div class="checklist">
+        <h3>Checklist</h3>
+        <div class="checklist-item" onclick="this.classList.toggle('checked')">
+          <div class="checkbox"></div>
+          <div class="item-text">Família Geisse — Terroir Experience</div>
+          <span class="item-status status-required">obrigatório</span>
+        </div>
+        <div class="checklist-item" onclick="this.classList.toggle('checked')">
+          <div class="checkbox"></div>
+          <div class="item-text">Champenoise Bistrô — almoço sábado</div>
+          <span class="item-status status-required">obrigatório</span>
+        </div>
+        <div class="checklist-item" onclick="this.classList.toggle('checked')">
+          <div class="checkbox"></div>
+          <div class="item-text">Valmarino — degustação</div>
+          <span class="item-status status-recommended">recomendado</span>
+        </div>
+        <div class="checklist-item" onclick="this.classList.toggle('checked')">
+          <div class="checkbox"></div>
+          <div class="item-text">Nature — almoço domingo</div>
+          <span class="item-status status-recommended">recomendado</span>
+        </div>
+        <div class="checklist-item checked" onclick="this.classList.toggle('checked')">
+          <div class="checkbox"></div>
+          <div class="item-text">Airbnb — R$ 262,28 por pessoa</div>
+          <span class="item-status status-recommended">já feito</span>
+        </div>
+        <div class="checklist-item" onclick="this.classList.toggle('checked')">
+          <div class="checkbox"></div>
+          <div class="item-text">🔫 Arminhas + munição pra guerrinha</div>
+          <span class="item-status status-required">não esquecer</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tips">
+      <div class="section-label">Dicas espertas</div>
+      <h3>Pra viagem fluir</h3>
+
+      <div class="tip-card">
+        <strong>Sábado tá cheio</strong>
+        <p>Se quiser deixar mais confortável, cortar a Vita Eterna e aproveitar mais a Valmarino + descanso antes do jantar.</p>
+      </div>
+
+      <div class="tip-card">
+        <strong>Divisão de motoristas</strong>
+        <p>Combinar quem dirige em cada trecho — especialmente no sábado com degustação. Alguém tem que segurar a taça.</p>
+      </div>
+
+      <div class="tip-card">
+        <strong>Mercado na chegada</strong>
+        <p>Parar pra comprar o que precisa pro churrasco de sexta e strogonoff de sábado antes de subir pro Airbnb.</p>
+      </div>
+
+      <div class="tip-card">
+        <strong>Roupa quente</strong>
+        <p>Julho em Pinto Bandeira pode fazer muito frio, principalmente à noite. Casaco bom é essencial.</p>
+      </div>
+
+      <div class="tip-card">
+        <strong>Café de domingo</strong>
+        <p>Garantir que tem pão, ovos, café, frutas no Airbnb pra manhã tranquila antes do passeio.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ornament">· · ·</div>
+  <p>Que sejam três dias de vinho, risada e boa companhia.</p>
+  <small>Pinto Bandeira · Julho 2026</small>
+</footer>
+
+<script>
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 80) {
+      nav.classList.add('scrolled');
+    } else {
+      nav.classList.remove('scrolled');
+    }
+  });
+
+  // Countdown para 24 de julho de 2026, 10:00
+  function updateCountdown() {
+    const tripDate = new Date('2026-07-24T10:00:00-03:00');
+    const now = new Date();
+    const diff = tripDate - now;
+    const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
+    const el = document.getElementById('countdown-days');
+    const sub = document.getElementById('countdown-sub');
+    if (!el) return;
+
+    if (days > 1) {
+      el.textContent = days;
+      sub.textContent = `até 24 de julho, 10h — partida de POA`;
+    } else if (days === 1) {
+      el.textContent = '1';
+      sub.textContent = 'é amanhã! 🎉';
+    } else if (days === 0) {
+      el.textContent = '0';
+      sub.textContent = 'É HOJE! vamo vamo vamo 🍷';
+    } else {
+      el.textContent = '✓';
+      document.querySelector('.countdown-unit').textContent = 'viagem feita';
+      sub.textContent = 'até a próxima! 🥂';
+    }
+  }
+  updateCountdown();
+  setInterval(updateCountdown, 60000);
+</script>
+
+</body>
+</html>
